@@ -1,4 +1,4 @@
-package ifrn.pi.eventos;
+package ifrn.pi.eventos.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 @RequestMapping("/")
 	public String index() {
+	System.out.println("acessou ");
 		return"home";
 	}
 }
