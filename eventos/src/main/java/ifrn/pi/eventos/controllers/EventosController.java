@@ -11,6 +11,7 @@ import ifrn.pi.eventos.models.Evento;
 import ifrn.pi.eventos.repositores.EventosRepositorys;
 
 @Controller
+@RequestMapping("/eventos")
 public class EventosController {
 
 	@Autowired
