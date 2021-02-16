@@ -1,5 +1,8 @@
 package ifrn.pi.eventos.controllers;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,20 +32,20 @@ public class EventosController {
 		er.save(evento);
 		return "eventos/evento-adicionado";
 	}
-	
+
 	@GetMapping
 	public ModelAndView listar() {
-		
-		java.util.List<Evento> eventos = er.findAll();
+
+		List<Evento> eventos = er.findAll();
 		ModelAndView mv = new ModelAndView("eventos/lista");
-		mv.addObject("eventos",eventos);
+		mv.addObject("eventos", eventos);
 		return mv;
-	}	
+	}
+
 	@GetMapping("/{id}")
 	public ModelAndView detalhar(@PathVariable Long id) {
-
 		ModelAndView md = new ModelAndView();
-		java.util.Optional<Evento> opt = er.findById(id);
+		Optional<Evento> opt = er.findById(id);
 
 		if (opt.isEmpty()) {
 			md.setViewName("redirect:/eventos");
@@ -51,7 +54,7 @@ public class EventosController {
 		md.setViewName("eventos/detalhes");
 		Evento evento = opt.get();
 		md.addObject("evento", evento);
-		
+
 		return md;
 	}
 }
