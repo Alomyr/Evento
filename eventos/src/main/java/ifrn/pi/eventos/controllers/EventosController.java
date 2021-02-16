@@ -21,16 +21,14 @@ public class EventosController {
 	private EventosRepositorys er;
 
 	@RequestMapping("/cadastro")
-	public String form() {
+	public String form() {	
 		return "eventos/cadastro";
 	}
 
-	@PostMapping("/eventos")
+	@PostMapping
 	public String adicionar(Evento evento) {
-
-		System.out.println(evento);
 		er.save(evento);
-		return "eventos/evento-adicionado";
+	return "eventos/evento-adicionado";
 	}
 
 	@GetMapping
