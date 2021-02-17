@@ -14,19 +14,74 @@
 		<h1>detelhas de Eventos</h1>
 		<div class="row">
 			<div class="col s12">
-				<div class="card blue-grey darken-1">
-					<div class="card-content white-text">
-						<span class="card-title">Card Title</span>
-						<p>I am a very simple card. I am good at containing small bits
-							of information. I am convenient because I require little markup
-							to use effectively.</p>
-					</div>
-					<div class="card-action">
-						<a href="#">This is a link</a> <a href="#">This is a link</a>
+				<div class="card ">
+					<div class="card-content ">
+						<span class="card-title">Evento</span>
+						<p>
+							<strong>ID: </strong><span th:text="${evento.id}"></span>
+						</p>
+						<p>
+							<strong>Nome: </strong><span th:text="${evento.nome}"></span>
+						</p>
+						<p>
+							<strong>Local: </strong><span th:text="${evento.local}"></span>
+						</p>
+						<p>
+							<strong>Data: </strong><span th:text="${evento.data}"></span>
+						</p>
+						<p>
+							<strong>Horario: </strong><span th:text="${evento.horario}"></span>
+						</p>
 					</div>
 				</div>
-			</div>
-		</div>
-	</div>
+				<div class="card ">
+					<div class="card-content ">
+						<span class="card-title">Add Convidados</span>
+						<form action="" method="post">
+							<div>
+								<label>Nome: </label><input type="text" name="nome">
+							</div>
+							<div>
+								<label>Rg: </label><input type="text" name="rg">
+							</div>
+							<div>
+								<button class="waves-effect waves-light btn-small" type="submit">Salvar</button>
+								<button class="waves-effect waves-light btn-small" type="reset">Limpar</button>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="container">
+					<h1>Area de Convites</h1>
+					<div class="row">
+						<div class="col s12">
+							<div class="card ">
+								<div class="card-content ">
+									<span class="card-title">Lista de Convidados</span>
+									<table class="highlight">
+										<thead>
+											<tr>Os convidados para o seu evento ficam nessa lista a
+												baixo...
+											</tr>
+											<tr>
+												<td>ID</td>
+												<td>Nome</td>
+												<td>RG</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+											<tr th:each="c : ${covidados}">
+												<th th:text="${c.id}"></th>
+												<th th:text="${c.nome}"></th>
+												<th th:text="${c.rg}"></th>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 </body>
 </html>
